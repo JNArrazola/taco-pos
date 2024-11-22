@@ -1,6 +1,6 @@
 # Database Script
 
-``` 
+```sql
 -- Crear la base de datos
 CREATE DATABASE Taqueria;
 USE Taqueria;
