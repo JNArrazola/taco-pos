@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-    <div class="min-h-screen flex items-center justificar-center">
+    <div class="min-h-screen flex items-center justify-center">
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
             <h1 class="text-2xl font-bold mb-6 text-center">Registrar un Nuevo Usuario</h1>
             <?php if (isset($error)): ?>

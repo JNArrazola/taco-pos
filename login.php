@@ -20,7 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $db_password)) {
             $_SESSION['username'] = $db_username;
             $_SESSION['rol'] = $db_rol;
-            header("Location: index.php");
+
+            // Redirigir según el rol del usuario
+            switch ($db_rol) {
+                case 'admin':
+                    header("Location: index.php");
+                    break;
+                case 'mesero':
+                    header("Location: mesero.php");
+                    break;
+                case 'cajero':
+                    header("Location: cajero.php");
+                    break;
+                case 'cocinero':
+                    header("Location: cocinero.php");
+                    break;
+                default:
+                    header("Location: login.php");
+                    break;
+            }
             exit();
         } else {
             $error = "Contraseña inválida.";
@@ -42,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Iniciar Sesión</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<div class="min-h-screen flex items-center justificar-centro bg-gray-100">
+<div class="min-h-screen flex items-center bg-gray-100 justify-center">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 class="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h2>
         <?php if (isset($error)): ?>
