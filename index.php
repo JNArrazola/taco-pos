@@ -1,40 +1,40 @@
 <?php
 session_start();
 
-// Check if the user is logged in
+// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
 
-// Check if the user is an admin
+// Verificar si el usuario es un administrador
 if ($_SESSION['rol'] !== 'admin') {
-    echo "Access denied. Only admins can register new users.";
+    echo "Acceso denegado. Solo los administradores pueden registrar nuevos usuarios.";
     exit();
 }
 
-// If the user is an admin, show the registration form
+// Si el usuario es un administrador, mostrar el formulario de registro
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Registration</title>
+    <title>Registro de Administrador</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
         <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <h1 class="text-2xl font-bold mb-6 text-center">Register a New User</h1>
+            <h1 class="text-2xl font-bold mb-6 text-center">Registrar un Nuevo Usuario</h1>
             <form action="register.php" method="post">
                 <div class="mb-4">
-                    <label for="username" class="block text-gray-700">Username:</label>
+                    <label for="username" class="block text-gray-700">Nombre de usuario:</label>
                     <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div class="mb-4">
-                    <label for="password" class="block text-gray-700">Password:</label>
+                    <label for="password" class="block text-gray-700">Contraseña:</label>
                     <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div class="mb-4">
@@ -55,7 +55,7 @@ if ($_SESSION['rol'] !== 'admin') {
                     </select>
                 </div>
                 <div class="text-center">
-                    <input type="submit" value="Register" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="submit" value="Registrar" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
             </form>
         </div>

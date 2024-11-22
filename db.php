@@ -4,16 +4,16 @@ $username = "root";
 $password = "";
 $dbname = "Taqueria";
 
-// Create connection
+// Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+// Verificar conexión
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Function to create a new user
-function createUser($username, $password, $nombre, $apellido, $rol) {
+// Función para crear un nuevo usuario
+function crearUsuario($username, $password, $nombre, $apellido, $rol) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO Usuarios (username, password, nombre, apellido, rol) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $username, password_hash($password, PASSWORD_DEFAULT), $nombre, $apellido, $rol);
@@ -21,8 +21,8 @@ function createUser($username, $password, $nombre, $apellido, $rol) {
     $stmt->close();
 }
 
-// Function to create a new pedido
-function createPedido($fecha, $hora) {
+// Función para crear un nuevo pedido
+function crearPedido($fecha, $hora) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO Pedido (fecha, hora) VALUES (?, ?)");
     $stmt->bind_param("ss", $fecha, $hora);
@@ -30,8 +30,8 @@ function createPedido($fecha, $hora) {
     $stmt->close();
 }
 
-// Function to create a new mesa
-function createMesa($num_mesa) {
+// Función para crear una nueva mesa
+function crearMesa($num_mesa) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO Mesas (num_mesa) VALUES (?)");
     $stmt->bind_param("i", $num_mesa);
@@ -39,8 +39,8 @@ function createMesa($num_mesa) {
     $stmt->close();
 }
 
-// Function to create a new producto
-function createProducto($nombre_producto, $descripcion, $precio, $tipo_producto) {
+// Función para crear un nuevo producto
+function crearProducto($nombre_producto, $descripcion, $precio, $tipo_producto) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO Productos (nombre_producto, descripcion, precio, tipo_producto) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssds", $nombre_producto, $descripcion, $precio, $tipo_producto);
@@ -48,8 +48,8 @@ function createProducto($nombre_producto, $descripcion, $precio, $tipo_producto)
     $stmt->close();
 }
 
-// Function to create a new complemento
-function createComplemento($nombre_complemento, $precio) {
+// Función para crear un nuevo complemento
+function crearComplemento($nombre_complemento, $precio) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO Complementos (nombre_complemento, precio) VALUES (?, ?)");
     $stmt->bind_param("sd", $nombre_complemento, $precio);
@@ -57,8 +57,8 @@ function createComplemento($nombre_complemento, $precio) {
     $stmt->close();
 }
 
-// Close connection
-function closeConnection() {
+// Cerrar conexión
+function cerrarConexion() {
     global $conn;
     $conn->close();
 }
