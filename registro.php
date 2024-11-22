@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php if (isset($success)): ?>
                 <p class="text-green-500 mb-4"><?php echo $success; ?></p>
             <?php endif; ?>
-            <form action="register.php" method="post" class="space-y-4">
+            <form action="registro.php" method="post" class="space-y-4">
                 <div>
                     <label for="username" class="block text-sm font-medium text-gray-700">Nombre de usuario:</label>
                     <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
