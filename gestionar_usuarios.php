@@ -26,12 +26,14 @@ $stmt->close();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-100">
+    <!-- Header -->
     <div class="bg-white shadow-md p-4 flex justify-between items-center">
         <h2 class="text-xl font-semibold">Panel de Administración</h2>
         <form action="logout.php" method="post">
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Cerrar Sesión</button>
         </form>
     </div>
+
     <div class="container mx-auto mt-10">
         <h1 class="text-2xl font-bold mb-6 text-center">Gestionar Usuarios</h1>
         <table class="min-w-full bg-white">

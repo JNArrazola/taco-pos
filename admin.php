@@ -18,6 +18,14 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'admin') {
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+    <!-- Header -->
+    <div class="bg-white shadow-md p-4 flex justify-between items-center">
+        <h2 class="text-xl font-semibold">Panel de Administración</h2>
+        <form action="logout.php" method="post">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Cerrar Sesión</button>
+        </form>
+    </div>
+
     <div class="container mx-auto mt-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Panel para ir a registro.php -->
