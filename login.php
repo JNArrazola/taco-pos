@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirigir según el rol del usuario
             switch ($db_rol) {
                 case 'admin':
-                    header("Location: index.php");
+                    header("Location: admin.php");
                     break;
                 case 'mesero':
                     header("Location: mesero.php");
